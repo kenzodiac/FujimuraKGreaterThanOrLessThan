@@ -12,52 +12,44 @@ bool playAgain = true;
 
 //play again loop
 while (playAgain == true) {
-    //declaring variables for various functions
-    bool isConverted1 = false;
-    int intNum1 = 0;
+    //declaring variables to hold user inputs
+    decimal num1 = 0;
+    decimal num2 = 0;
 
-    bool isConverted2 = false;
-    int intNum2 = 0;
+    //method for taking in user input and doing data validation on that input
+    decimal InputAndValidation(decimal numPass) {
+        bool isConverted = false;
+        while (!isConverted) {
+            string stringNum = Console.ReadLine();
+            bool isNumber = Decimal.TryParse(stringNum, out numPass);
 
+            if (isNumber == true){
+                isConverted = true;
+            } else {
+                Console.Write("\nInvalid entry. Please enter a whole number or 'Integer': ");
+            }
+        }
+        return numPass;
+    }
+    
     //taking first number input, with data validation
     Console.Write("\nOn the keyboard, please input one number: ");
-    while (!isConverted1) {
-        string stringNum = Console.ReadLine();
-        bool isNumber = Int32.TryParse(stringNum, out intNum1);
-
-        if (isNumber == true){
-            isConverted1 = true;
-        } else {
-            Console.Write("\nInvalid entry. Please enter a whole number or 'Integer': ");
-        }
-    }
-
+    num1 = InputAndValidation(num1);
+    
     //taking second number input, with data validation
     Console.Write("\nGreat! Now, please input the second number: ");
-    while (!isConverted2) {
-        string stringNum = Console.ReadLine();
-        bool isNumber = Int32.TryParse(stringNum, out intNum2);
-
-        if (isNumber == true){
-            isConverted2 = true;
-        } else {
-            Console.Write("\nInvalid entry. Please enter a whole number or 'Integer': ");
-        }
-    }
-    //old converstion method from legacy program
-    //int intNum1 = Convert.ToInt32(stringNum1);
-    //int intNum2 = Convert.ToInt32(stringNum2);
+    num2 = InputAndValidation(num2);
 
     //number comparisons
-    NumberComp(intNum1, intNum2);
+    NumberComp();
 
     //method for doing number comparisons
-    void NumberComp(int num1, int num2){
+    void NumberComp(){
         Console.WriteLine("");
 
         if(num1 > num2){
             Console.WriteLine("Your first number \"" + num1 + "\" is GREATER THAN your second number \"" + num2 + "\"");
-        }else if(intNum1 < intNum2){
+        }else if(num1 < num2){
             Console.WriteLine("Your first number \"" + num1 + "\" is LESS THAN your second number \"" + num2 + "\"");
         }else{
             Console.WriteLine("Your first number \"" + num1 + "\" is EQUAL TO your second number \"" + num2 + "\"");
@@ -67,7 +59,7 @@ while (playAgain == true) {
 
         if(num2 > num1){
             Console.WriteLine("Your second number \"" + num2 + "\" is GREATER THAN your first number \"" + num1 + "\"");
-        }else if(intNum2 < intNum1){
+        }else if(num2 < num1){
             Console.WriteLine("Your second number \"" + num2 + "\" is LESS THAN your first number \"" + num1 + "\"");
         }else{
             Console.WriteLine("Your second number \"" + num2 + "\" is EQUAL TO your first number \"" + num1 + "\"");
