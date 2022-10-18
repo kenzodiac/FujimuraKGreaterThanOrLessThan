@@ -6,7 +6,7 @@
 //Peer Review by:
 
 Console.Clear();
-Console.WriteLine("Let's add two numbers!");
+Console.WriteLine("Welcome! This program compare two numbers of your choice and determine if they are greater than, less than, or equal to each other.");
 
 bool playAgain = true;
 
@@ -20,8 +20,7 @@ while (playAgain == true) {
     int intNum2 = 0;
 
     //taking first number input, with data validation
-    Console.WriteLine("Welcome! This program will tell you if two numbers are greater than, less than, or equal to each other.");
-    Console.WriteLine("On the keyboard, please input one number: ");
+    Console.Write("\nOn the keyboard, please input one number: ");
     while (!isConverted1) {
         string stringNum = Console.ReadLine();
         bool isNumber = Int32.TryParse(stringNum, out intNum1);
@@ -29,12 +28,12 @@ while (playAgain == true) {
         if (isNumber == true){
             isConverted1 = true;
         } else {
-            Console.WriteLine("Invalid entry. Please enter a whole number or 'Integer'.");
+            Console.Write("\nInvalid entry. Please enter a whole number or 'Integer': ");
         }
     }
 
     //taking second number input, with data validation
-    Console.WriteLine("Great! Now, please input the second number: ");
+    Console.Write("\nGreat! Now, please input the second number: ");
     while (!isConverted2) {
         string stringNum = Console.ReadLine();
         bool isNumber = Int32.TryParse(stringNum, out intNum2);
@@ -42,7 +41,7 @@ while (playAgain == true) {
         if (isNumber == true){
             isConverted2 = true;
         } else {
-            Console.WriteLine("Invalid entry. Please enter a whole number or 'Integer'.");
+            Console.Write("\nInvalid entry. Please enter a whole number or 'Integer': ");
         }
     }
     //old converstion method from legacy program
@@ -54,7 +53,8 @@ while (playAgain == true) {
 
     //method for doing number comparisons
     void NumberComp(int num1, int num2){
-        
+        Console.WriteLine("");
+
         if(num1 > num2){
             Console.WriteLine("Your first number \"" + num1 + "\" is GREATER THAN your second number \"" + num2 + "\"");
         }else if(intNum1 < intNum2){
@@ -75,20 +75,20 @@ while (playAgain == true) {
     }
 
     //play again prompt with input validation
-    Console.Write("Would you like to compare another pair of numbers? Y/N: ");
+    Console.Write("\nWould you like to compare another pair of numbers? Y/N: ");
     bool answerCheck = true;
     while (answerCheck == true) {
         string playAgainInput = Console.ReadLine().ToLower();
         if (playAgainInput == "y" || playAgainInput == "yes") {
             answerCheck = false;
-            continue;
+            Console.WriteLine("Let's go again!");
         } else if (playAgainInput == "n" || playAgainInput == "no"){
             playAgain = false;
             answerCheck = false;
+            Console.WriteLine("Ez Katka");
         } else {
-            Console.WriteLine("I do not understand. Please answer with 'Y' for yes, or 'N' for no.");
+            Console.Write("\nI do not understand. Please answer with 'Y' for yes, or 'N' for no: ");
             answerCheck = true;
         }
     }
 }
-Console.WriteLine("Ez Katka");
