@@ -1,6 +1,6 @@
 ﻿//Kenneth Fujimura
 //10-18-2022
-//Mini Challenge # 4 - Greater Than Or Less Than
+//GitHub Challenge # 4 - Greater Than Or Less Than
 //Console program greets the user, asks for input of two different numbers, proceses those string values into intergers, ...
 //...compares which value is larger, and then reports that information to the user.
 //Peer Review by:
